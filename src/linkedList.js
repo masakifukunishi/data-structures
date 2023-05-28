@@ -58,6 +58,16 @@ class LinkedList {
     }
     return currentNode;
   }
+  remove(index) {
+    if (index >= this.length) {
+      return this.printList();
+    }
+    const leader = this.traverseToIndex(index - 1);
+    const unwantedNode = leader.next;
+    leader.next = unwantedNode.next;
+    this.length--;
+    return this.printList();
+  }
 }
 
 let myLinkedList = new LinkedList(10);
